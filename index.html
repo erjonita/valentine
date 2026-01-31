@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Valentine</title>
+<title>Kunata</title>
 <style>
 body {
   background: pink;
@@ -27,26 +27,49 @@ button {
   background-color: red;
   color: white;
 }
+
+#message {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+img {
+  margin-top: 20px;
+  width: 250px;
+  border-radius: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<h1>Willst du mein Valentine sein? 💖</h1>
+<h1 id="question">Willst du meine kunata sein?? 💖</h1>
 
-<button id="yes" onclick="yesClick()">Yes</button>
-<button id="no" onmouseover="moveButton()">No</button>
+<button id="yes" onclick="yesClick()">Ja</button>
+<button id="no" onclick="noClick()">Nein</button>
+
+<p id="message"></p>
+<img id="gif" style="display:none;" />
 
 <script>
 function moveButton() {
-  const x = Math.random() * window.innerWidth;
-  const y = Math.random() * window.innerHeight;
+  const x = Math.random() * (window.innerWidth - 150);
+  const y = Math.random() * (window.innerHeight - 150);
   document.getElementById("no").style.left = x + "px";
   document.getElementById("no").style.top = y + "px";
 }
 
 function yesClick() {
-  document.body.innerHTML = "<h1>YAAAY 😍❤️ Endlich!!!</h1><p>Ich liebe dich 💘</p>";
+  document.getElementById("question").innerText = "Jeeeej endlich, jetzt habe ich eine Schwester 💖🥰";
+  document.getElementById("message").innerText = "Ich liebe dich kunata 😍";
+  document.getElementById("gif").src = "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif";
+  document.getElementById("gif").style.display = "block";
+}
+
+function noClick() {
+  document.getElementById("message").innerText = "Geh zurück und klick auf Ja 😏";
+  moveButton();
 }
 </script>
 
